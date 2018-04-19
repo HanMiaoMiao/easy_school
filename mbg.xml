@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+        <!--配置数据库连接-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/easyschool"
+                        userId="root"
+                        password="mm03">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--指定JavaBEAN生成的位置-->
+        <javaModelGenerator targetPackage="com.xust.easyschool.bean" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+        <!--sql映射文件-->
+        <sqlMapGenerator targetPackage="mapper"  targetProject=".\src\main\resource">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--dao接口-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xust.easyschool.dao"  targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+        <!--每个表生成策略-->
+        <table  tableName="consumer" domainObjectName="comsumer" />
+        <table  tableName="login" domainObjectName="login" />
+        <table  tableName="hobby" domainObjectName="hobby" />
+
+
+    </context>
+</generatorConfiguration>
